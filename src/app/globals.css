@@ -31,3 +31,7 @@ body {
     text-wrap: balance;
   }
 }
+
+.ant-input-number{
+  width: 216px;
+}
