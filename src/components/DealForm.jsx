@@ -18,6 +18,9 @@ const DealForm = ({ disabledIdsfromdeals }) => {
     setRows([...rows, {}]);
   };
 
+  // get the user timezone
+  const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
   const handleSubmit = async () => {
     try {
       const values = await form.validateFields();
@@ -28,6 +31,7 @@ const DealForm = ({ disabledIdsfromdeals }) => {
         sellingPrice: values[`selling_price_${index}`],
         quantity: values[`quantity_${index}`],
         timeRange: values[`time_range_${index}`],
+        timezone: userTimezone,
       }));
 
       const response = await pushData(dealData);
